@@ -125,14 +125,14 @@ class VM(object):
         self.spin_up = spin_up
         #print("adding worker id and type",self.id,self.task_type)
         if task_type == 0:
-            self.free_slots = 4
-            self.max_slots = 4
+            self.free_slots = 16
+            self.max_slots = 16
         if task_type == 1:
-            self.free_slots = 4
-            self.max_slots = 4
+            self.free_slots = 16
+            self.max_slots = 16
         if task_type == 2:
-            self.free_slots = 4
-            self.max_slots = 4
+            self.free_slots = 16
+            self.max_slots = 16
         self.num_queued_tasks = 0
 
     def add_task(self, task_id, current_time):
