@@ -64,19 +64,14 @@ class Lambda(object):
         self.start_time = current_time
         self.up_time = up_time
         if task_type == 0:
-            self.exec_time = float(400)
-            self.mem = float(2024)
-        if task_type == 1:
-            self.exec_time = float(400)
-            self.mem = float(3024)
-        if task_type == 2:
-            self.exec_time = float(950)
-            self.mem = float(3048)
-
-        if task_type == 3:
             self.exec_time = float(2000)
             self.mem = float(512)
-
+        if task_type == 1:
+            self.exec_time = float(2000)
+            self.mem = float(512)
+        if task_type == 2:
+            self.exec_time = float(2000)
+            self.mem = float(512)
     def execute_task(self,task_id, current_time):
         #print("executing task in lambda")
         task_duration = self.simulation.tasks[task_id].exec_time
@@ -130,19 +125,14 @@ class VM(object):
         self.spin_up = spin_up
         #print("adding worker id and type",self.id,self.task_type)
         if task_type == 0:
-            self.free_slots = 6
-            self.max_slots = 6
-        if task_type == 1:
-            self.free_slots = 5
-            self.max_slots = 5
-        if task_type == 2:
-            self.free_slots = 2
-            self.max_slots = 2
-        
-        if task_type == 3:
             self.free_slots = 4
             self.max_slots = 4
-        
+        if task_type == 1:
+            self.free_slots = 4
+            self.max_slots = 4
+        if task_type == 2:
+            self.free_slots = 4
+            self.max_slots = 4
         self.num_queued_tasks = 0
 
     def add_task(self, task_id, current_time):
@@ -222,20 +212,14 @@ class Task(object):
         self.lambda_tasks = 0
         self.vm_tasks = 0
         if task_type == 0:
-            self.exec_time = 400
-            self.mem = 1024
-        if task_type == 1:
-            self.exec_time = 400
-            self.mem = 2024
-
-        if task_type == 2:
-            self.exec_time = 950
-            self.mem = 3048
-
-        if task_type == 3:
             self.exec_time = 2000
             self.mem = 512
-
+        if task_type == 1:
+            self.exec_time = 2000
+            self.mem = 512
+        if task_type == 2:
+            self.exec_time = 2000
+            self.mem = 512
 
     def task_completed(self, completion_time):
         self.completed_tasks += 1
