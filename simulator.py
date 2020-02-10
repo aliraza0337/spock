@@ -72,6 +72,11 @@ class Lambda(object):
         if task_type == 2:
             self.exec_time = float(950)
             self.mem = float(3048)
+
+        if task_type == 3:
+            self.exec_time = float(2000)
+            self.mem = float(512)
+
     def execute_task(self,task_id, current_time):
         #print("executing task in lambda")
         task_duration = self.simulation.tasks[task_id].exec_time
@@ -133,6 +138,11 @@ class VM(object):
         if task_type == 2:
             self.free_slots = 2
             self.max_slots = 2
+        
+        if task_type == 3:
+            self.free_slots = 4
+            self.max_slots = 4
+        
         self.num_queued_tasks = 0
 
     def add_task(self, task_id, current_time):
@@ -217,9 +227,15 @@ class Task(object):
         if task_type == 1:
             self.exec_time = 400
             self.mem = 2024
+
         if task_type == 2:
             self.exec_time = 950
             self.mem = 3048
+
+        if task_type == 3:
+            self.exec_time = 2000
+            self.mem = 512
+
 
     def task_completed(self, completion_time):
         self.completed_tasks += 1
